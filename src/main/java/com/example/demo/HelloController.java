@@ -9,7 +9,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String helloMethod(HttpServletRequest request) {
-        return "Hello peeps, welcome to the cherry's world"+request.getSession().getId();
+        return "Hello peeps, welcome to the cherry's world " + request.getSession().getId();
     }
 
 }
