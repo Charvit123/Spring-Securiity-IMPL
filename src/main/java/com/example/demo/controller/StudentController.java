@@ -14,22 +14,23 @@ import java.util.List;
 @RestController
 public class StudentController {
 
-    private List<Student> students=new ArrayList<>(List.of(
-            new Student(1,"Charvit",60),
-            new Student(2,"Hasit",65)
+    private final List<Student> students = new ArrayList<>(List.of(
+            new Student(1, "Charvit", 60),
+            new Student(2, "Hasit", 65)
     ));
 
     @GetMapping("/csrf-token")
-    public CsrfToken getCsrf(HttpServletRequest request){
+    public CsrfToken getCsrf(HttpServletRequest request) {
         return (CsrfToken) request.getAttribute("_csrf");
     }
+
     @GetMapping("/students")
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return students;
     }
 
     @PostMapping("/students")
-    public List<Student> addStudents(@RequestBody Student student){
+    public List<Student> addStudents(@RequestBody Student student) {
         students.add(student);
         return students;
     }
